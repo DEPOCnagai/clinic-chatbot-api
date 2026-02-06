@@ -62,7 +62,12 @@ function logEvent(obj) {
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`API server listening on port ${PORT}`);
+});
+
 
 app.set("trust proxy", 1);
 

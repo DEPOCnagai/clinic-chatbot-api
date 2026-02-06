@@ -434,3 +434,8 @@ return res.json({
 app.listen(PORT, () => {
   console.log(`API server listening on http://localhost:${PORT}`);
 });
+
+app.get("/ping", (req, res) => {
+  console.log("PING", new Date().toISOString());
+  res.json({ ok: true, ts: new Date().toISOString() });
+});
